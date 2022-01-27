@@ -60,11 +60,23 @@ Example:
 Input: n = 3, k = 3
 Output: "213" */
 
-// function permutations(n,k){
-//     let arr = [];
-//     // Write you logic here. 
-//     return arr
-// };
+function permutations(n,k){
+    let arr = [];
+
+    if (k.length === 0)  return []
+    if(n.length === 1) return [n]
+    for (let i = 0; i < n.length; i++) {
+        const currentNum = arr[i];
+        const remainingNums = arr.slice(0, i).concat(arr.slice(i + 1))
+        const remainingNumsPermuted = permutations(remainingNums);
+    
+    for (let j = 0; j < remainingNumsPermuted.length; j++) {
+        const permutedArray =[currentNum].concat(remainingNumsPermuted[j])
+        arr.push(permutedArray)
+    }
+   }
+    return arr
+    };
 // will do soon 
 describe("Test division", () => {
     test("Return the division result", () => {
@@ -95,7 +107,7 @@ describe("Test fibonacci", () => {
 
 describe("Test permutations", () => {
     test("It should return a list of possible combinations", () => {
-        expect(permutations([1,2,3],3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
-        expect(permutations([1,2,3],0)).toStrictEqual([]);
+        expect(permutations(3,3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
+        expect(permutations(3,0)).toStrictEqual([]);
     })
 });
