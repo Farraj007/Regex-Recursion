@@ -60,13 +60,12 @@ Example:
 Input: n = 3, k = 3
 Output: "213" */
 
-function permutations(n,k){
-    let arr = [];
-    // Write you logic here. 
-    return arr
-};
-
-
+// function permutations(n,k){
+//     let arr = [];
+//     // Write you logic here. 
+//     return arr
+// };
+// will do soon 
 describe("Test division", () => {
     test("Return the division result", () => {
         expect(division(10,2)).toStrictEqual(5);
